@@ -3,6 +3,7 @@ namespace RocketMQ\Client\Producer;
 
 use RocketMQ\Client\Common\ClientErrorCode;
 use RocketMQ\Client\Exception\MQClientException;
+use RocketMQ\Client\Latency\MQFaultStrategy;
 use RocketMQ\Common\CommunicationMode;
 use RocketMQ\Common\Message\Message;
 use RocketMQ\Common\System;
@@ -10,6 +11,12 @@ use RocketMQ\Common\System;
 class DefaultMQProducer
 {
 
+    public $mqFaultStrategy;
+    public function __construct()
+    {
+        $this->mqfaultStrategy = new MQFaultStrategy();
+
+    }
     public function start()
     {
 
@@ -20,6 +27,11 @@ class DefaultMQProducer
 
     }
 
+
+    public function updateFaultItem($brokerName, $currentLatency, $isolation) 
+    {
+
+    }
     /**
      * @param Message $msg
      */

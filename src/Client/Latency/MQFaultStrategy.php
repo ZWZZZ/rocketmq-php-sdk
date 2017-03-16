@@ -15,7 +15,7 @@ class MQFaultStrategy
     }
     public function getNotAvailableDuration()
     {
-
+        return $this->notAvailableDuration;
     }
     public function setNotAvailableDuration($notAvailableDuration)
     {
@@ -24,6 +24,16 @@ class MQFaultStrategy
     public function setSendLatencyFaultEnable($sendLatencyFaultEnable)
     {
         $this->setSendLatencyFaultEnable = $sendLatencyFaultEnable;
+    }
+
+    public function getLatencyMax()
+    {
+        return $this->latencyMax;
+    }
+
+    public function setLatencyMax($latencyMax)
+    {
+        $this->latencyMax = $latencyMax;
     }
     public function selectOneMessageQueue($tpInfo, $lastBrokerName)
     {
